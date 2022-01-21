@@ -52,6 +52,14 @@ public class HandlerQuery {
                     filter.getId())));
         }
 
+        if (filter.getCategoryId() != -1) {
+            System.out.println("cate_id: " + filter.getCategoryId());
+            specification = specification.and(new HandlerSpecification(new SearchCriteria(
+                    "categoryId",
+                    Operation.EQUAL,
+                    filter.getCategoryId())));
+        }
+
         if (filter.getFrom() != null && filter.getFrom().length() > 0) {
             System.out.println("from: " + filter.getFrom());
             specification = specification.and(new HandlerSpecification(new SearchCriteria(

@@ -32,6 +32,12 @@ public class ProductServiceImpl implements IProductService {
     CategoryRepository categoryRepo;
 
     public Page findAll(ObjectFilter filter) {
+        //
+//        Specification spec = Specification.where(null);
+//        if (filter.getCategoryId() > 0) {
+//            spec = spec.and(new HandlerSpecification(new SearchCriteria("categoryId", "=", filter.getCategoryId())));
+//        }
+        //
         return productRepo.findAll(HandlerQuery.creatQuery(filter),
                 HandlerQuery.creatPagination(filter.getPage(), filter.getPageSize()));
     }
@@ -49,7 +55,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     public Product save(Product product) {
-        Optional<Category> category = categoryRepo.findById(product.getCategory_id());
+        Optional<Category> category = categoryRepo.findById(product.getCategoryId());
         if (category.isPresent()) {
             product.setCreatedAt(LocalDate.now());
             product.setStatus(1);

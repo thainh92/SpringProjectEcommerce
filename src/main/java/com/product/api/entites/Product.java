@@ -48,7 +48,7 @@ public class Product {
 
     @NotNull(message = "Category is required")
     @Column(name = "category_id")
-    private Integer category_id;
+    private Integer categoryId;
 
     @NotEmpty(message = "Description is required")
     @Column(columnDefinition = "TEXT")
@@ -84,7 +84,7 @@ public class Product {
         this.description = newInfo.getDescription();
         this.thumbnail = newInfo.getThumbnail();
         this.detail = newInfo.getDetail();
-        this.category_id = newInfo.getCategory_id();
+        this.categoryId = newInfo.getCategoryId();
         this.updatedAt = LocalDate.now();
     }
 }

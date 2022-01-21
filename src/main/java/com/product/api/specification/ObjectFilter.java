@@ -19,6 +19,7 @@ public class ObjectFilter {
     public static final String PHONE = "phone";
     public static final String EMAIL = "email";
     public static final String CREATED_AT = "createdAt";
+    public static final String CATEGORY_ID = "categoryId";
 
     private int id;
     private int categoryId;
